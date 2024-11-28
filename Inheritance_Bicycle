@@ -1,0 +1,64 @@
+//Base Class
+class Bicycle
+{
+    public int gear;
+    public int speed;
+
+    public Bicycle(int gear, int speed)
+    {
+        this.gear=gear;
+        this.speed=speed;
+    }
+
+    public void applyBreak(int decrement)
+    {
+        speed-=decrement;
+    }
+
+    public void speedUp(int increment)
+    {
+        speed+=increment;
+    }
+
+    public String toString()
+    {
+        return ("No.of gears = "+gear+"\nSpeed of the bicycle = "+speed);
+    }
+}
+//Derived Class
+class MontainBike extends Bicycle
+{
+    int seatHeight;
+
+    public MontainBike(int gear, int speed, int startHieght)
+    {
+        super(gear,speed);
+        seatHeight=startHieght;
+    }
+
+    public void setHeight(int newValue)
+    {
+        seatHeight=newValue;
+    }
+
+    public String toString()
+    {
+        return(super.toString()+"\nSeat Height = "+seatHeight);
+    }
+}
+//Driver Class
+public class Main
+{
+    public static void main(String agrs[])
+    {
+        MontainBike obj= new MontainBike(6,80,21);
+        System.out.println("Details of MontainBike:");
+        System.out.println(obj.toString());
+        Bicycle obj2= new Bicycle(5,100);
+        obj2.applyBreak(3);
+        System.out.println("Details of Bicycle");
+        System.out.println(obj2.toString());
+        obj2.speedUp(12);
+        System.out.println(obj2.toString());
+    }
+}
